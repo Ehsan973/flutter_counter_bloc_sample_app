@@ -1,4 +1,7 @@
+import 'package:counter_bloc_sample_app/bloc/counter_bloc.dart';
+import 'package:counter_bloc_sample_app/ui/counter_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const Application());
@@ -11,12 +14,9 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: Text('Initial Application'),
-          ),
-        ),
+      home: BlocProvider(
+        create: (context) => CounterBloc(),
+        child: CounterScreen(),
       ),
     );
   }
